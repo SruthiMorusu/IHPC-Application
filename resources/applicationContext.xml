@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+    <bean id="applicationContextProvder"
+          class="com.ihpc.cmma.util.ApplicationContextProvider"/>
+    <!--    DAO Impl Bean Start-->
+    <bean id="TaxiDaoImpl" class="com.ihpc.cmma.dao.impl.TaxiDaoImpl"></bean>
+    <bean id="PromotionDaoImpl" class="com.ihpc.cmma.dao.impl.PromotionDaoImpl"></bean>
+    <bean id="ShopDaoImpl" class="com.ihpc.cmma.dao.impl.ShopDaoImpl"></bean>
+    <bean id="ShopkeeperDaoImpl" class="com.ihpc.cmma.dao.impl.ShopkeeperDaoImpl"></bean>
+    <bean id="EventDaoImpl" class="com.ihpc.cmma.dao.impl.EventDaoImpl"></bean>
+    <bean id="VenueDaoImpl" class="com.ihpc.cmma.dao.impl.VenueDaoImpl"></bean>
+    <bean id="BusStandDaoImpl" class="com.ihpc.cmma.dao.impl.BusStandDaoImpl"></bean>
+    <bean id="SportsHubDaoImpl" class="com.ihpc.cmma.dao.impl.SportsHubDaoImpl"></bean>
+    <bean id="NotificationDaoImpl" class="com.ihpc.cmma.dao.impl.NotificationDaoImpl"></bean>
+    <!--    DAO Impl Bean End -->
+    
+    <!--Business Impl Beans Start-->
+    <bean id="TaxiBusinessImpl" class="com.ihpc.cmma.business.impl.TaxiBusinessImpl">
+        <property name="taxiDao" ref="TaxiDaoImpl"></property>
+    </bean>
+    <bean id="EventBusinessImpl" class="com.ihpc.cmma.business.impl.EventBusinessImpl">
+        <property name="eventDao" ref="EventDaoImpl"></property>
+    </bean>
+    <bean id="PromotionBusinessImpl" class="com.ihpc.cmma.business.impl.PromotionBusinessImpl">
+        <property name="promotionDao" ref="PromotionDaoImpl"></property>
+    </bean>
+    <bean id="ShopBusinessImpl" class="com.ihpc.cmma.business.impl.ShopBusinessImpl">
+        <property name="shopDao" ref="ShopDaoImpl"></property>
+    </bean>
+    <bean id="ShopkeeperBusinessImpl" class="com.ihpc.cmma.business.impl.ShopkeeperBusinessImpl">
+        <property name="dao" ref="ShopkeeperDaoImpl"></property>
+    </bean>
+    <bean id="VenueBusinessImpl" class="com.ihpc.cmma.business.impl.VenueBusinessImpl">
+        <property name="venueDao" ref="VenueDaoImpl"></property>
+    </bean>
+    <bean id="BusStandBusinessImpl" class="com.ihpc.cmma.business.impl.BusStandBusinessImpl">
+        <property name="standDao" ref="BusStandDaoImpl"></property>
+    </bean>
+    <bean id="SportsHubBusinessImpl" class="com.ihpc.cmma.business.impl.SportsHubBusinessImpl">
+        <property name="hubDao" ref="SportsHubDaoImpl"></property>
+    </bean>
+    
+    <bean id="NotificationBusinessImpl" class="com.ihpc.cmma.business.impl.NotificationBusinessImpl">
+        <property name="notificationDao" ref="NotificationDaoImpl"></property>
+    </bean>
+    
+</beans>
