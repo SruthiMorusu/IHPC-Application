@@ -7,7 +7,7 @@ package com.ihpc.cmma.model;
 
 import java.util.List;
 
-/**
+/*
  *
  * @author Sruthi
  */
