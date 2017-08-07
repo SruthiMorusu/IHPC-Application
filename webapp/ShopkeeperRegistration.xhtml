@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+
+
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+        <h:outputStylesheet library="css" name="narrowJumbotron.css"/>
+
+        <ui:composition template="templates/master.xhtml">
+            <ui:define name="content">
+                        <h:form  id="registerForm" styleClass="form-signin">  
+                            <h2 class="form-signin-heading">Registration Form</h2>
+                            <p:growl id="msg" showDetail="true" life="3000" />    
+                            <p:inputText styleClass="form-control" id="name" value="#{shopKeeperView.shopkeeper.shopkeeperName}"  
+                                         placeholder="Name" maxlength="15" >
+
+                            </p:inputText>
+
+                            <p:inputText styleClass="form-control"  id="email"  value="#{shopKeeperView.shopkeeper.emailid}"  
+                                         placeholder="Email ID" validatorMessage="Not a valid Email id">
+
+                                <f:validateRegex 
+                                    pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$" />
+
+                            </p:inputText>
+
+                            <p:inputText type="password" styleClass="form-control" value="#{shopKeeperView.shopkeeper.shopkeeperPassword}"  
+                                         placeholder="Password" maxlength="15"   validatorMessage="Not a valid password">
+                                <f:validateRegex 
+                                    pattern="^[a-z0-9_-]{3,16}$" />
+
+                            </p:inputText>
+                            <p:inputText type="password" styleClass="form-control"  value="#{shopKeeperView.shopkeeper.confimPassword}"  
+                                         placeholder="Confirm Password" maxlength="15"   validatorMessage="Not a valid password">
+
+                                <f:validateRegex 
+                                    pattern="^[a-z0-9_-]{3,16}$" />
+
+                            </p:inputText>
+
+
+                            <p:inputText id="shopName" styleClass="form-control" value="#{shopKeeperView.shopkeeper.companyName}"  
+                                         placeholder="Shop Name" maxlength="10" > 
+
+                            </p:inputText>
+                            <p:inputText  styleClass="form-control" id="ShopId" value="#{shopKeeperView.shopkeeper.shopNumber}"  
+                                          placeholder="Shop Number" maxlength="10" /> 
+                            <!--                            <h:message for="email"/>
+                                                         <h:message for="psw"/>-->
+                            <!--                             <p:messages/>-->
+
+                            <!--                            <p:messages/>-->
+                            <p:commandLink styleClass="btn btn-lg btn-primary btn-block" value="Register" action="#{shopKeeperView.register()}" update="@form"  /> 
+
+
+
+
+
+                        </h:form>  
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

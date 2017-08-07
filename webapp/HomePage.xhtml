@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Home Page</title>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+         <ui:composition template="templates/master.xhtml">
+            <ui:define name="content">       
+ <div class="container">        
+         <div class="jumbotron">
+             <h:form id="shopkeeperHome" styleClass="form-signin">  
+                 <p:growl id="msg" showDetail="true" life="3000" />
+            <h2 class="form-signin-heading">Shopkeeper Home Page</h2>
+            <h4 style="color: #c7254e"></h4>
+           
+                
+                <table align="left">
+                    <tr>
+                        <td>
+<h:commandLink value="Create Event" action="#{homePageView.displayCreateEvent()}"/>
+                        </td>
+                    </tr>
+                        <tr>
+                        <td>
+<h:commandLink value="Modify Event" action="#{homePageView.displayModifyEvent()}"/>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+<h:commandLink value="Delete Event" action="#{homePageView.displayDeleteEvent()}"/>
+                        </td>    
+                        </tr>
+                </table>
+            <table align="right">
+<tr>
+    <td>
+<h:commandLink value="Create Promotion" action="#{homePageView.displayCreatePromotion()}"/>
+    </td>
+    </tr>
+                        <tr><td>
+<h:commandLink value="Modify Promotion" action="#{homePageView.displayModifyPromotion()}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                
+<h:commandLink value="Delete Promotion" action="#{homePageView.displayDeletePromotion()}"/>
+                        
+                        </td>
+                            </tr>
+
+            </table>
+         
+             </h:form>
+            
+         </div>
+           
+</div>
+          </ui:define>
+         </ui:composition>
+    </h:body> 
+             
+</html>
+

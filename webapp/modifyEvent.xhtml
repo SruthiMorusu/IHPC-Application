@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="templates/master.xhtml">
+            <ui:define name="content">
+                <ui:include src="ReviewSelectEvent.xhtml" />
+
+                <h:form enctype="multipart/form-data" id="modifyDeleteEvent">
+                    <h:outputLabel value="Modify Event" styleClass="alCenter"/>
+                    <p:panelGrid style="margin-left: 23%">
+                        <p:row>
+                            <p:column>
+
+                                <p:inputText styleClass="form-control" id="EventName" placeholder="Event Name" value="#{eventView.event.eventName}" size="8" style="width: 200px" 
+                                             /> </p:column>
+                            
+                                <p:column rowspan="6">
+                                <p:outputLabel  value="Upload New Event Photo: " />
+                                <p:growl id="messages" showDetail="true" />
+                                <p:fileUpload value="#{eventView.event.file}" mode="simple"/>
+                                
+                                <h:graphicImage style="width: 175px;height: 175px" rendered="#{eventView.event.eventPhoto != null}" value="/images/dynamic/?file=#{eventView.event.eventPhoto}"/>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column>
+                                <p:inputTextarea styleClass="form-control" id="EventDescription" placeholder="Event Description" value="#{eventView.event.eventDescription}"
+                                                 /> 
+                            </p:column>
+                        </p:row>
+
+                        <p:row>
+                            <p:column>
+                                <p:inputTextarea styleClass="form-control" id="EventVenue" placeholder="Event Venue" value="#{eventView.event.eventVenue}" 
+                                                 /> 
+                            </p:column>
+                        </p:row>
+
+                        <p:row>
+                            <p:column>
+                                <p:panelGrid columns="2">  <p:calendar id="eventStartDate" mindate="#{eventView.currentDate}" pattern="dd-MM-yyyy" value="#{eventView.event.eventStartDate}" placeholder="enter start date" effect="fold"/>
+
+                                    <p:calendar  id="eventEndDate" pattern="dd-MM-yyyy" mindate="#{eventView.currentDate}" value="#{eventView.event.eventEndDate}" placeholder="enter end date" effect="fold"/> 
+                                </p:panelGrid>
+                            </p:column>
+                            
+                        </p:row>    
+                    </p:panelGrid>
+                    <br></br>
+                    <h:commandButton style="margin-left: 48%;width: 200px" styleClass="btn btn-large btn-primary" action="#{eventView.modifyEventView()}" value="Modify"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

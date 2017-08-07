@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+            <h:outputStylesheet library="css" name="signin.css"/> 
+            <h:outputStylesheet library="css" name="narrowJumbotron.css"/>
+            <h:outputScript library="scripts" name="bootstrap.min.js"/>
+            <h:outputStylesheet library="css" name="event.css"/>
+            <div class="header" >
+                <div class="block_header" align="center">
+
+
+                    <h1 class="form-signin-heading"> Crowd And Mobility Management Application </h1>
+
+                </div>
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <h:panelGroup layout="block" rendered="#{not empty username}">  <ul class="nav navbar-nav">
+
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Event <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="createEvent.xhtml">Create New Event</a></li> 
+                                            <li><a href="modifyEvent.xhtml">Modify Event</a></li>
+                                            <li><a href="deleteEvent.xhtml">Delete Event</a></li>
+                                        </ul>
+                                    </li>
+                                     <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Promotion <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="createPromotion.xhtml">Create New Promotion</a></li> 
+                                            <li><a href="modifyPromotion.xhtml">Modify Promotion</a></li>
+                                            <li><a href="deletePromotion.xhtml">Delete Promotion</a></li>
+                                        </ul>
+                                    </li>
+                                </ul></h:panelGroup>
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <h:panelGroup layout="block" rendered="#{ empty username}">  <li><a href="ShopkeeperLogin.xhtml">Home</a></li> </h:panelGroup>
+                                <h:panelGroup layout="block" rendered="#{ empty username}"> <li><a href="ShopkeeperRegistration.xhtml">Registration</a></li> </h:panelGroup>
+                                <h:panelGroup layout="block" rendered="#{empty username}"> <li><a href="AboutUs.xhtml">About Us</a></li> </h:panelGroup>
+                                <h:panelGroup layout="block" rendered="#{not empty username}"> <li><a href="#">Welcome <font color="blue">#{username}</font></a></li></h:panelGroup>
+                                <h:panelGroup layout="block" rendered="#{not empty username}"> <li><a href="HomePage.xhtml">Home Page <font color="blue"></font></a></li></h:panelGroup>
+                                <h:panelGroup layout="block" rendered="#{not empty username}"> <li><h:commandLink action="#{shopKeeperView.logout()}" value="Logout" /></li></h:panelGroup>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                        
+                    </div><!--/.container-fluid -->
+                   
+                </nav>
+            </div>
+
+            
+        </h:form>
+    </h:body>
+</html>
+

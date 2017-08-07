@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Create Event</title>
+    </h:head>
+        
+    <h:body>
+        
+        <ui:composition template="templates/master.xhtml">
+            <ui:define name="content">
+               
+                        <h:form  enctype="multipart/form-data" id="createEvent">
+                            <h:outputLabel value="Create New Event" styleClass="alCenter"/>
+                            <p:growl id="messages" showDetail="true" />
+                            <p:panelGrid style="margin-left: 25%;">
+
+                                <p:row>
+                                    <p:column> <p:inputText styleClass="form-control" id="eventname" placeholder="Event Name" value="#{eventView.event.eventName}" size="8" style="width: 200px" required="true" requiredMessage="Please enter event name" /> </p:column>
+                                    <p:column rowspan="4">
+                                        <p:outputLabel  value="Upload Event Photo: " />
+                                        <p:fileUpload value="#{eventView.event.file}" mode="simple"/>
+                                    </p:column>
+                                </p:row>
+
+                                <p:row>
+                                    <p:column> <p:inputTextarea styleClass="form-control" id="eventDesc" value="#{eventView.event.eventDescription}" placeholder="Event Description" required="true" requiredMessage="enter event description"/> </p:column>
+
+                                </p:row>
+                                <p:row>
+                                    <p:column> <p:inputTextarea styleClass="form-control" id="eventVenue" value="#{eventView.event.eventVenue}" placeholder="Event Venue" required="true" requiredMessage="enter event venue"/></p:column>
+
+                                </p:row>
+                                <p:row>
+                                    <p:column>
+                                        <p:panelGrid columns="2"><p:calendar id="eventStartDate" pattern="dd-MM-yyyy" mindate="#{eventView.currentDate}" value="#{eventView.event.eventStartDate}" placeholder="Start Date" effect="fold"/>
+                                            <p:calendar id="eventEndDate" pattern="dd-MM-yyyy" value="#{eventView.event.eventEndDate}" mindate="#{eventView.currentDate}" placeholder="End Date" effect="fold"/> </p:panelGrid> </p:column>
+                                </p:row>
+
+                                
+
+                            </p:panelGrid>
+                            <br></br>
+                            <h:commandLink style="margin-left: 48%;width: 200px" styleClass="btn btn-large btn-primary"  value="Create Event" action="#{eventView.createEventView()}"/>
+                        </h:form>
+                    
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
